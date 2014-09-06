@@ -49,8 +49,7 @@
 
 .cm-matchhighlight { border-bottom-color: @foreground; }
 
-.CodeMirror,
-.CodeMirror-scroll {
+.CodeMirror, .CodeMirror-scroll {
   background-color: @background;
   color: @foreground;
 }
@@ -79,8 +78,8 @@
 
 .CodeMirror-focused .CodeMirror-selected {
   background: linear-gradient(to right, lighten(@background, 20%) 0%, lighten(@background, 15%) 25%, lighten(@background, 15%) 75%, lighten(@background, 20%) 100%);
-  border-right: @p-light 1px solid;
-  border-left: @p-light 1px solid;
+  border-right: @foreground 1px solid;
+  border-left: @foreground 1px solid;
 }
 
 /*.CodeMirror-searching {
@@ -128,22 +127,9 @@ background-color: white;
   background: linear-gradient(to right, lighten(@background, 7%) 0px, lighten(@background, 3%) 50px) !important;
 }
 
-.CodeMirror-focused .CodeMirror-activeline-background {
-//  background: linear-gradient(to right, lighten(@background, 7%) 0px, lighten(@background, 3%) 50px) !important;
-
-}
-
-
 .CodeMirror-activeline .CodeMirror-gutter-elt {
   background: lighten(@background, 4%);
-  border-right: 3px solid @s;
-  height: 15px;
-}
-
-.CodeMirror-focused .CodeMirror-activeline .CodeMirror-gutter-elt {
-//  background: linear-gradient(to left, lighten(@background, 10%) 0px, lighten(@background, 2%) 10px) !important;
-//  border-right: @s 3px solid;
-//  padding-right: 13px;
+  border-right: 2px solid @s;
 }
 
 
@@ -151,7 +137,8 @@ background-color: white;
  * Cursor
  */
 .CodeMirror-cursor {
-  border-left: 1px solid @foreground !important;
+  border: 1px solid @foreground !important;
+  box-shadow: 0 0 5px @foreground;
 }
 
 .CodeMirror-overwrite .CodeMirror-cursor {
@@ -164,11 +151,11 @@ background-color: white;
  * White Space
  */
 .cm-dk-whitespace-leading-space:before, .cm-dk-whitespace-leading-tab:before {
-  background: fade(@comment, 30%);
+  background: fade(@comment, 20%);
 }
 
 .cm-dk-whitespace-space:before, .cm-dk-whitespace-tab:before {
-  background: fade(@comment, 20%);
+  background: fade(@comment, 10%);
 }
 
 .cm-dk-whitespace-trailing-space:before, .cm-dk-whitespace-trailing-tab:before {
