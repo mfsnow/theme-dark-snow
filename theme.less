@@ -1,0 +1,176 @@
+
+/* Palette */
+@light-shadow:       rgba(255,255,255,0.25);
+@dark-shadow:        rgba(0,0,0,0.25);
+@p:           #7BD;
+@p-light:     lighten(saturate(@p, 20%), 17%);
+@p-dark:      darken(saturate(@p, -20%), 25%);
+@s:  #cf8;
+@s-light:     saturate(@s, -50%);
+@s-dark:      darken(@s, 20%);
+@t:   #f5a;
+@t-light:     lighten(@t, 10%);
+@t-dark:      darken(@t, 15%);
+@background: darken(saturate(@p, -35%), 60%);
+@foreground: #fff;
+@comment:    fade(@foreground, 50%);
+
+/* Editor styling */
+.cm-keyword        { color: @p-light; }
+.cm-atom           { color: @t-light; }
+.cm-number         { color: @t; text-shadow: 0 0 4px fade(@t-light, 50%); }
+.cm-def            { color: @foreground; }
+.cm-variable       { color: @p-dark; }
+.cm-variable-2     { color: @p; }
+.cm-variable-3     { color: @t-light; }
+.cm-operator       { color: @foreground; }
+.cm-comment        { color: @comment; }
+.cm-string         { color: @s; text-shadow: 0 0 4px fade(@s-light, 50%); }
+.cm-string.cm-property { color: @p-light; text-shadow: none; }
+.cm-string-2       { color: @p; }
+.cm-meta           { color: @t; }
+.cm-error          { color: @t-dark; }
+.cm-qualifier      { color: @p }
+.cm-builtin        { color: @p-dark; }
+.cm-bracket        { color: @foreground; }
+.cm-tag            { color: @p; }
+.cm-tag.cm-bracket { color: @p-dark; }
+.cm-attribute      { color: @p-dark; }
+.cm-header         { color: @t; }
+.cm-quote          { color: @p; }
+.cm-hr             { color: @s; }
+.cm-link           { color: @s; }
+.cm-strong         { color: @t-dark; }
+.cm-em             { color: @t; }
+.cm-rangeinfo      { color: @p; }
+.cm-minus          { color: @t; }
+.cm-plus           { color: @t; }
+.cm-property       { color: @p-light; }
+
+.cm-matchhighlight { border-bottom-color: @foreground; }
+
+.CodeMirror,
+.CodeMirror-scroll {
+  background-color: @background;
+  color: @foreground;
+}
+
+/*
+* Gutter
+*/
+
+.CodeMirror-gutters {
+  background: darken(@background, 2%);
+  border-right: darken(@background, 5%) 1px solid;
+}
+
+.CodeMirror-gutter-elt {
+  color: @comment !important;
+}
+
+/*
+ * Selection
+ */
+.CodeMirror-selected {
+  background: lighten(@background, 15%);
+  border-right: @comment 1px solid;
+  border-left: @comment 1px solid;
+}
+
+.CodeMirror-focused .CodeMirror-selected {
+  background: linear-gradient(to right, lighten(@background, 20%) 0%, lighten(@background, 15%) 25%, lighten(@background, 15%) 75%, lighten(@background, 20%) 100%);
+  border-right: @p-light 1px solid;
+  border-left: @p-light 1px solid;
+}
+
+/*.CodeMirror-searching {
+background-color: fade(white, 40%);
+color: @background !important;
+}
+
+.CodeMirror-searching.searching-current-match {
+background-color: white;
+}*/
+
+/*
+ * Brackets and Tags
+ */
+.CodeMirror-nonmatchingbracket {
+  background-color: @t-dark;
+  color: white !important;
+}
+
+.CodeMirror-matchingbracket {
+  background: linear-gradient(to top, lighten(@background, 20%) 0px, rgba(255,255,255,0) 5px);
+  border-bottom: 2px solid @comment;
+  color: white !important;
+}
+
+.CodeMirror-focused .CodeMirror-matchingbracket {
+  background: linear-gradient(to top, lighten(@background, 20%) 0px, rgba(255,255,255,0) 5px);
+  border-bottom: 2px solid @p-light;
+}
+
+.CodeMirror-matchingtag {
+  background: linear-gradient(to top, lighten(@background, 20%) 0px, rgba(255,255,255,0) 5px);
+  border-bottom: 2px solid @comment;
+}
+
+.CodeMirror-focused .CodeMirror-matchingtag {
+  background: linear-gradient(to top, lighten(@background, 20%) 0px, rgba(255,255,255,0) 5px);
+  border-bottom: 2px solid @p-light;
+}
+
+/*
+ * Active Line
+ */
+.CodeMirror-activeline-background {
+  background: linear-gradient(to right, lighten(@background, 7%) 0px, lighten(@background, 3%) 50px) !important;
+}
+
+.CodeMirror-focused .CodeMirror-activeline-background {
+//  background: linear-gradient(to right, lighten(@background, 7%) 0px, lighten(@background, 3%) 50px) !important;
+
+}
+
+
+.CodeMirror-activeline .CodeMirror-gutter-elt {
+  background: lighten(@background, 4%);
+  border-right: 3px solid @s;
+  height: 15px;
+}
+
+.CodeMirror-focused .CodeMirror-activeline .CodeMirror-gutter-elt {
+//  background: linear-gradient(to left, lighten(@background, 10%) 0px, lighten(@background, 2%) 10px) !important;
+//  border-right: @s 3px solid;
+//  padding-right: 13px;
+}
+
+
+/*
+ * Cursor
+ */
+.CodeMirror-cursor {
+  border-left: 1px solid @foreground !important;
+}
+
+.CodeMirror-overwrite .CodeMirror-cursor {
+  border-bottom: 1px solid @foreground;
+  border-left: none !important;
+}
+
+
+/*
+ * White Space
+ */
+.cm-dk-whitespace-leading-space:before, .cm-dk-whitespace-leading-tab:before {
+  background: fade(@comment, 30%);
+}
+
+.cm-dk-whitespace-space:before, .cm-dk-whitespace-tab:before {
+  background: fade(@comment, 20%);
+}
+
+.cm-dk-whitespace-trailing-space:before, .cm-dk-whitespace-trailing-tab:before {
+  background: @t-dark;
+}
